@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  .app
+    .contactList
+      .self
+        img(src=user.avatar).avatar
+        .info
+          .name= user.name
+          div(class='service #{user.service}') via #{user.service}
+          a(href='/logout').logout Logout
+      ul.others
+    .chatWindow
+      .messages
+    form.newMessage
+      input(type='text').text
+      button.btn.code
+      button(type='submit').btn.send
+
+  script(type='text/template').template-userlist-user
+    li
+      img(src!='<%= user.avatar %>').avatar
+      .info
+        .name <%= user.name %>
+        div(class!='service <%= user.service %>') via <%= user.service %>
+
+  script(type='text/template').template-chat-message
+    .message
+      img(src!='<%= user.avatar %>').avatar
+      .bubble
+        p <%= content %>
+
+  script(type='text/template').template-chat-message-append
+    p <%= content %>
+
+block append footer_assets
+  script(src='/js/application.js')

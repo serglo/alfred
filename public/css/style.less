@@ -1,0 +1,42 @@
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*[class^='jsp'] {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+@import 'mixins';
+@import 'reset';
+@import 'variables';
+@import 'button';
+@import 'scaffolding';
+@import 'login';
+@import 'contactlist';
+@import 'scrollpane';
+@import 'chatwindow';
+@import 'newmessage';
+
+.app {
+  .clearfix();
+  position: relative;
+  border: 1px solid @borderColor;
+  height: @appHeight;
+  width: @appWidth;
+  margin: 30px auto;
+}
+
+.avatar {
+  float: left;
+  margin: 0 10px 0 0;
+  .square(@appAvatarSize);
+  .border-radius(3px);
+}
+
+
+

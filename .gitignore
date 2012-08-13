@@ -1,0 +1,6 @@
+public/js/*.js
+public/js/*.coffee
+public/js/libs/*
+node_modules
+public/css/*.css
+.env

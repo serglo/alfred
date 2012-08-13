@@ -1,0 +1,52 @@
+.buttonStyle(@background: #666, @buttonColor: @white, @diff: 2%) {
+  #gradient.vertical(@background, darken(@background, 10%));
+  color: @buttonColor;
+  text-shadow: 0 1px 1px darken(@background, 20%);
+
+  &:hover {
+    color: @buttonColor;
+    text-decoration: none;
+    #gradient.vertical(lighten(@background, @diff), darken(@background, 10%-@diff));
+  }
+
+  &:active {
+    #gradient.vertical(lighten(@background, -@diff), darken(@background, 10%+@diff));
+    .translate(0, 1px);
+  }
+}
+
+@buttonBorderRadius: 3px;
+
+.button {
+  .box-shadow(~"inset 0 0 1px #000, inset 0 1px 0 1px rgba(255,255,255,0.2), 0 1px 1px -1px rgba(0, 0, 0, .5)");
+  .border-radius(@buttonBorderRadius);
+  padding: 6px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 2px;
+  display: inline-block;
+  .ie7-inline-block();
+  text-align: center;
+
+  .buttonStyle();
+
+  &:disabled {
+    @diff: 2%;
+    #gradient.vertical(lighten(#ececec, -@diff), darken(#ececec, 10%+@diff));
+    color: lighten(@baseFontColor, 20%);
+    text-shadow: 0 1px 1px #fff;
+  }
+
+  &.button-red {
+    .buttonStyle(@red);
+  }
+
+  &.button-green {
+    .buttonStyle(@green);
+  }
+
+  &.button-blue {
+    .buttonStyle(@blueDark);
+  }
+}

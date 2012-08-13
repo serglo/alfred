@@ -1,0 +1,84 @@
+.contactList {
+  line-height: 1.4;
+  width: @appContactWidth;
+  height: @appContactHeight;
+  border-bottom: 1px solid @borderColor;
+  overflow: hidden;
+  background: @appGray;
+
+  .self {
+    float: left;
+    margin-right: 5px;
+    height: 100%;
+    padding: 3px 5px 0;
+    background: darken(@appGray, 10%);
+    border-right: 1px solid darken(@borderColor, 5%);
+
+    .avatar {
+      margin: 0;
+    }
+
+    .logout {
+      font-size: 11px;
+    }
+
+    .service {
+      color: darken(@blueLight, 20%);
+    }
+
+    &:hover {
+      .info {
+        display: block;
+      }
+    }
+  }
+
+  .info {
+    display: none;
+    position: absolute;
+    margin-top: @appContactHeight;
+    background: @white;
+    border: 1px solid @borderColor;
+    .border-radius(3px);
+    padding: 5px 10px;
+    z-index: 999;
+
+    &:before {
+      content: '';
+      display: block;
+      #popoverArrow.bottom(5px, @borderColor);
+      top: 0;
+      margin-top: -10px;
+      width: 0;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .service {
+      line-height: 1;
+      font-size: @baseFontSize*0.8;
+      color: lighten(@baseFontColor, 40%);
+      text-decoration: none;
+    }
+  }
+
+  ul.others {
+    margin: 0;
+    padding: 3px 5px 0 0;
+    list-style: none;
+    float: left;
+
+    li {
+      float: left;
+
+      &:hover {
+        .info {
+          display: block;
+        }
+      }
+    }
+  }
+
+}

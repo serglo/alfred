@@ -1,0 +1,15 @@
+body {
+  font: @baseFontSize @baseFontFamily;
+  color: @baseFontColor;
+  line-height: @baseLineHeight;
+}
+
+a {
+  color: @linkColor;
+  text-decoration: underline;
+  .transition(color 0.3s ease-in-out);
+
+  &:hover {
+    color: @linkColorHover;
+  }
+}

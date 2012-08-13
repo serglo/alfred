@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .login
+    h1= title
+    ul
+      li
+        a(href="/auth/twitter").button.login-twitter login with twitter
+      li
+        a(href="/auth/github").button.login-github login with github
+      li
+        a(href="/auth/facebook").button.login-facebook login with facebook
