@@ -50,6 +50,7 @@ findOrCreateUser = (service, id, data, promise) ->
         profilelink: "http://github.com/#{data.login}"
         service: 'github'
     when 'facebook'
+      console.log data
       cleanData =
         name: data.username
         fullname: data.name
@@ -179,6 +180,7 @@ sio.sockets.on 'connection', (socket) ->
     , 10 * 1000
 
     socket.on 'disconnect', ->
+      console.log arguments
       socket.broadcast.to('chatroom').emit 'user.left', { user: user }
       socket.leave 'chatroom'
       onlineUsers = _.filter onlineUsers, (el) ->

@@ -33,5 +33,11 @@ block content
   script(type='text/template').template-chat-message-append
     p <%= content %>
 
+  script(type='text/template').template-status-message-joined
+    .status-message <%= user.name %> joined the chat (login via <%= user.service %>)
+
+  script(type='text/template').template-status-message-left
+    .status-message <%= user.name %> left the chat
+
 block append footer_assets
   script(src='/js/application.js')
